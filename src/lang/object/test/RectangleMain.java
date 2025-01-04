@@ -7,7 +7,7 @@ public class RectangleMain {
         Rectangle rect2 = new Rectangle(100, 20);
         System.out.println(rect1);
         System.out.println(rect2);
-        System.out.println(rect1 == rect2);
+          System.out.println(rect1 == rect2);
         System.out.println(rect1.equals(rect2));
     }
 }
