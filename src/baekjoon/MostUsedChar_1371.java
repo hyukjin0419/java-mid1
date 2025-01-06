@@ -27,6 +27,7 @@ public class MostUsedChar_1371 {
                 max = countChar[i];
                 result.setLength(0);
                 result.append((char) (i + 'a'));
+                2
             } else if (countChar[i] == max) {
                 result.append((char) (i + 'a'));
             }
