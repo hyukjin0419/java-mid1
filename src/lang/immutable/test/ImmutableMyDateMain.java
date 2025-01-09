@@ -1,6 +1,6 @@
 package lang.immutable.test;
 
-public class ImmutableMyDateMain {
+public class  ImmutableMyDateMain {
 
     public static void main(String[] args) {
         //date1=x001, date2=x001
