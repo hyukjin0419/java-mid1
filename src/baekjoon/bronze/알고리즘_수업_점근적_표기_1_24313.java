@@ -3,7 +3,7 @@ package baekjoon.bronze;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class 알고리즘_수업_점근적_표기_1_24313 {
+class 알고리즘_수업_점근적_표기_1_24313 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
