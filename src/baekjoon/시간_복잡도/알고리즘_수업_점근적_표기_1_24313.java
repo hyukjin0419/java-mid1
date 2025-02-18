@@ -1,4 +1,4 @@
-package baekjoon.bronze;
+package baekjoon.시간_복잡도;
 
 import java.io.*;
 import java.util.StringTokenizer;

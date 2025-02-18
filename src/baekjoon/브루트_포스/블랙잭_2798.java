@@ -1,8 +1,7 @@
-package baekjoon.bronze;
+package baekjoon.브루트_포스;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 블랙잭_2798 {

@@ -1,4 +1,4 @@
-package baekjoon.bronze;
+package baekjoon.정렬;
 
 import java.io.*;
 public class 대표값2_BubbleSort_2587 {

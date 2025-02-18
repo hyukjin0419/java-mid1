@@ -1,7 +1,6 @@
-package baekjoon.silver;
+package baekjoon.브루트_포스;
 
 import java.io.*;
-import java.util.*;
 
 public class 영화감독_숌_1436 {
     public static void main(String[] args) throws IOException{
