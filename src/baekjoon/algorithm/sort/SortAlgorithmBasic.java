@@ -1,6 +1,6 @@
 package baekjoon.algorithm.sort;
 
-public class SortAlgorithm {
+public class SortAlgorithmBasic {
 
 
     static void bubbleSort(int[] arr){
@@ -34,6 +34,20 @@ public class SortAlgorithm {
             }
         }
     }
+
+    void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i], j = i - 1 ;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+
 
 
 
