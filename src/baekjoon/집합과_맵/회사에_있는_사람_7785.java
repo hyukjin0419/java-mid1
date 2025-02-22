@@ -28,5 +28,6 @@ public class 회사에_있는_사람_7785 {
         }
 
         bw.flush();
+
     }
 }
