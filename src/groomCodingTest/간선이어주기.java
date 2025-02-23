@@ -60,7 +60,7 @@ public class 간선이어주기 {
         //그럼 큐는 왜 필요한걸까?
 
         queue.add(k);
-        //일단 큐에 지작점을 담는다.
+        //일단 큐에 지작점을 담는다
 
 
         visited[k] = true;
