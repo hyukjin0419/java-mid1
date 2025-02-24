@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class hashSet {
+public class hashSetMap {
     public static void main(String[] args) {
         // HashSet 사용
         HashSet<String> set = new HashSet<>();
