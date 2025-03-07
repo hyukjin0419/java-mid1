@@ -1,4 +1,4 @@
-package baekjoon.약수_배수와_소수;
+package baekjoon.약수_배수와_소수_2;
 
 import java.io.*;
 import java.util.*;
