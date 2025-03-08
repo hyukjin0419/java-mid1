@@ -36,17 +36,17 @@ public class SortingAlgorithm_NLogN {
         }
     }
 
-    static void mergeSortIndex(int[] arr, int left, int right) {
+    static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
 
-            mergeSortIndex(arr, left, mid);
-            mergeSortIndex(arr, mid + 1, right);
-            mergeIndex(arr, left, mid, right);
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
         }
     }
 
-    static void mergeIndex(int[] arr, int left, int mid, int right) {
+    static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
