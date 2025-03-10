@@ -1,6 +1,5 @@
 package baekjoon.algorithm.ds;
 
-import java.io.*;
 import java.util.Scanner;
 
 public class PriorityQueue {
@@ -8,7 +7,7 @@ public class PriorityQueue {
     static int size = 0;
 
     public static void main(String[] args) {
-        int maxSize = 30;
+        int maxSize = 31;
         Student[] students = new Student[maxSize];
         Student student;
 
@@ -18,11 +17,9 @@ public class PriorityQueue {
 
             if (menu.equals("i")) {
                 maxHeapInsertion(students);
-                for (int i = 1; i <= size; i++) {
-                    System.out.println(students[i].toString());
-                }
+            } else if (menu.equals("d")) {
+                System.out.println("max = " + maxHeapExtractMax(students));
             }
-//            else if (menu.equals("d")) {
 //
 //            } else if (menu.equals("r")) {
 //
@@ -35,6 +32,9 @@ public class PriorityQueue {
 //            } else {
 //                continue;
 //            }
+            for (int i = 1; i <= size; i++) {
+                System.out.println("현재상태: " + students[i].toString());
+            }
         }
 
 
@@ -135,7 +135,7 @@ public class PriorityQueue {
         int score = sc.nextInt();
         sc.nextLine();
         while (score > 100 || score < 0) {
-            System.out.println("Wrong number. Please enter the number 0~100");
+            System.out.print("Wrong number. Please enter the number 0~100: ");
             score = sc.nextInt();
             sc.nextLine();
         }
@@ -154,12 +154,47 @@ public class PriorityQueue {
         }
         students[i].setScore(score);
 
+        //여기 확인좀
         while (i > 1 && students[i / 2].getScore() < students[i].getScore()) {
-            int temp = students[i / 2].getScore();
-            students[i / 2].setScore(students[i].getScore());
-            students[i].setScore(temp);
-
+            Student temp = students[i / 2];
+            students[i / 2] = students[i];
+            students[i] = temp;
             i = i/2;
+        }
+    }
+
+    static Student maxHeapMaximum(Student[] students) {
+        if (size < 1) {
+            System.out.println("Heap underflow error");
+        }
+        return students[1];
+    }
+
+    static Student maxHeapExtractMax(Student[] students) {
+        Student maxStudent = maxHeapMaximum(students);
+        students[1] = students[size];
+        size--;
+        maxHeapify(students, 1);
+        return maxStudent;
+    }
+
+    static void maxHeapify(Student[] students, int i) {
+        int l = 2 * i;
+        int r = 2 * i + 1;
+
+        int largest = i;
+
+        if (l <= size && students[l].getScore() > students[i].getScore()) {
+            largest = l;
+        }
+        if (r <= size && students[r].getScore() > students[largest].getScore()) {
+            largest = r;
+        }
+        if (largest != i) {
+            Student temp = students[i];
+            students[i] = students[largest];
+            students[largest] = temp;
+            maxHeapify(students,largest);
         }
     }
 }
