@@ -143,6 +143,7 @@ public class PriorityQueue {
         String className = sc.nextLine();
 
         students[size] = new Student(name, score, className);
+        System.out.println("New element [" + name + ", " + score + ", " + className + "] has been inserted.");
         students[size].setScore(Integer.MIN_VALUE);
 
         heapIncreaseKey(students, size, score);
