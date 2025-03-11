@@ -1,4 +1,4 @@
-package baekjoon.algorithm.ds;
+package baekjoon.algorithm.ds.priorityQueue;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,28 +12,45 @@ public class PriorityQueue {
         Student[] students = new Student[maxSize];
         Student student;
 
-
+        label:
         while (true) {
             String menu = chooseMenu();
 
-            if (menu.equals("i")) {
-                maxHeapInsertion(students);
-            } else if (menu.equals("d")) {
-                System.out.println("Deleted element: " + maxHeapExtractMax(students));
-            } else if (menu.equals("r")) {
-                System.out.println("Element with the largest key: maxHeapMaximum(students));");
-            } else if (menu.equals("n")) {
+            switch (menu) {
+                case "i":
+                    maxHeapInsertion(students);
+                    break;
+                case "d":
+                    System.out.println("Deleted element: " + maxHeapExtractMax(students));
+                    break;
+                case "r":
+                    System.out.println("Element with the largest key: " + maxHeapMaximum(students));
+                    break;
+                case "n":
+                    System.out.print("Enter the index of the element: ");
+                    int index = sc.nextInt();
+                    sc.nextLine();
+                    int newScore;
+                    boolean input = false;
+                    while (!input) {
+                        System.out.print("Enter the new score: ");
+                         newScore = getValidScore();
 
-            } else if (menu.equals("p")) {
-                for (int i = 1; i <= size; i++) {
-                    System.out.println(students[i].toString());
-                }
-            } else if (menu.equals("q")) {
-                System.out.println("Program terminated)");
-                break;
-            }
-            else {
-                System.out.println("Invalid Input. Please choose command among below");
+                        input = heapIncreaseKey(students, index, newScore);
+                    }
+                    System.out.println("Key updated. " + students[index].getName() + ", " + students[index].getScore() + ", " + students[index].getCourse() + "] has been repositioned in the queue.");
+                    break;
+                case "p":
+                    for (int i = 1; i <= size; i++) {
+                        System.out.println(students[i].toString());
+                    }
+                    break;
+                case "q":
+                    System.out.println("Program terminated.");
+                    break label;
+                default:
+                    System.out.println("Invalid Input. Please choose command among below");
+                    break;
             }
 
         }
@@ -108,15 +125,13 @@ public class PriorityQueue {
             return ("[" + name + ". " + score + ". " + course + "]");
         }
     }
-
     static String chooseMenu(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("**************** Menu ****************");
         System.out.println("I: Insert a new element into the queue.");
         System.out.println("D: Delete the element with the largest key from the queue.");
         System.out.println("R: Retrieve the element with the largest key.");
         System.out.println("N: Increase the key of an element in the queue.");
-        System.out.println("P: Print ");
+        System.out.println("P: Print all elements in the queue.");
         System.out.println("Q: Quit.");
 
         System.out.print("Choose menu: ");
@@ -129,22 +144,8 @@ public class PriorityQueue {
         System.out.print("Enter the name of the student: ");
         String name = sc.nextLine();
         System.out.print("Enter the score of the element: ");
-        int score;
-        while (true) {
-            try {
-                score = sc.nextInt();
-                sc.nextLine();
-                if (score <= 100 && score >= 0) {
-                    break;
-                } else {
-                    System.out.print("Invalid score. Please enter a valid integer between 0~100: ");
-                }
-            } catch (InputMismatchException e) {
-                System.out.print("Wrong Type is entered for score. Please enter a valid integer between 0~100: ");
-                sc.nextLine();
-            }
-        }
 
+        int score = getValidScore();
 
         System.out.print("Enter the class name: ");
         String className = sc.nextLine();
@@ -156,9 +157,28 @@ public class PriorityQueue {
         heapIncreaseKey(students, size, score);
     }
 
-    static void heapIncreaseKey(Student[] students, int i, int score) {
+    static int getValidScore() {
+        int score;
+        while (true) {
+            try {
+                score = sc.nextInt();
+                sc.nextLine();
+                if (score <= 100 && score >= 0) {
+                    return score;
+                } else {
+                    System.out.print("Invalid score. Please enter a valid integer between 0~100: ");
+                }
+            } catch (InputMismatchException e) {
+                System.out.print("Wrong Type is entered for score. Please enter a valid integer between 0~100: ");
+                sc.nextLine();
+            }
+        }
+    }
+
+    static boolean heapIncreaseKey(Student[] students, int i, int score) {
         if (score < students[i].getScore()) {
-            System.out.println("New key is smaller than current key");
+            System.out.println("New score should be larger than current score. please enter again.");
+            return false;
         }
         students[i].setScore(score);
 
@@ -169,18 +189,27 @@ public class PriorityQueue {
             students[i] = temp;
             i = i/2;
         }
+
+        return true;
     }
 
     static Student maxHeapMaximum(Student[] students) {
         if (size < 1) {
             System.out.println("Heap underflow error");
+            return null;
         }
         return students[1];
     }
 
     static Student maxHeapExtractMax(Student[] students) {
+        if (size < 1) {
+            System.out.println("Heap underflow error");
+            return null;
+        }
+
         Student maxStudent = maxHeapMaximum(students);
         students[1] = students[size];
+        students[size] = null;
         size--;
         maxHeapify(students, 1);
         return maxStudent;
@@ -205,4 +234,6 @@ public class PriorityQueue {
             maxHeapify(students,largest);
         }
     }
+
+
 }
