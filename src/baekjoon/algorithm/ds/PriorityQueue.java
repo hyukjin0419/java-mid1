@@ -1,5 +1,6 @@
 package baekjoon.algorithm.ds;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PriorityQueue {
@@ -18,23 +19,23 @@ public class PriorityQueue {
             if (menu.equals("i")) {
                 maxHeapInsertion(students);
             } else if (menu.equals("d")) {
-                System.out.println("max = " + maxHeapExtractMax(students));
+                System.out.println("Deleted element: " + maxHeapExtractMax(students));
+            } else if (menu.equals("r")) {
+                System.out.println("Element with the largest key: maxHeapMaximum(students));");
+            } else if (menu.equals("n")) {
+
+            } else if (menu.equals("p")) {
+                for (int i = 1; i <= size; i++) {
+                    System.out.println(students[i].toString());
+                }
+            } else if (menu.equals("q")) {
+                System.out.println("Program terminated)");
+                break;
             }
-//
-//            } else if (menu.equals("r")) {
-//
-//            } else if (menu.equals("n")) {
-//
-//            } else if (menu.equals("p")) {
-//
-//            } else if (menu.equals("q")) {
-//
-//            } else {
-//                continue;
-//            }
-            for (int i = 1; i <= size; i++) {
-                System.out.println("현재상태: " + students[i].toString());
+            else {
+                System.out.println("Invalid Input. Please choose command among below");
             }
+
         }
 
 
@@ -104,11 +105,7 @@ public class PriorityQueue {
 
         @Override
         public String toString() {
-            return "Student{" +
-                    "name='" + name + '\'' +
-                    ", score=" + score +
-                    ", course='" + course + '\'' +
-                    '}';
+            return ("[" + name + ". " + score + ". " + course + "]");
         }
     }
 
@@ -132,13 +129,23 @@ public class PriorityQueue {
         System.out.print("Enter the name of the student: ");
         String name = sc.nextLine();
         System.out.print("Enter the score of the element: ");
-        int score = sc.nextInt();
-        sc.nextLine();
-        while (score > 100 || score < 0) {
-            System.out.print("Wrong number. Please enter the number 0~100: ");
-            score = sc.nextInt();
-            sc.nextLine();
+        int score;
+        while (true) {
+            try {
+                score = sc.nextInt();
+                sc.nextLine();
+                if (score <= 100 && score >= 0) {
+                    break;
+                } else {
+                    System.out.print("Invalid score. Please enter a valid integer between 0~100: ");
+                }
+            } catch (InputMismatchException e) {
+                System.out.print("Wrong Type is entered for score. Please enter a valid integer between 0~100: ");
+                sc.nextLine();
+            }
         }
+
+
         System.out.print("Enter the class name: ");
         String className = sc.nextLine();
 
