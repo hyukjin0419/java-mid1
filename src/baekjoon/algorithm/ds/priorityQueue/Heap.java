@@ -136,8 +136,8 @@ public class Heap {
             System.out.print("Enter the new score: ");
             newScore = getValidScore();
         }
-
+        System.out.println("Key updated. [" + students[index].getName() + ", " + newScore + ", " + students[index].getCourse() + "] has been repositioned in the queue.");
         heapIncreaseKey(index, newScore);
-        System.out.println("Key updated. [" + students[index].getName() + ", " + students[index].getScore() + ", " + students[index].getCourse() + "] has been repositioned in the queue.");
+
     }
 }
