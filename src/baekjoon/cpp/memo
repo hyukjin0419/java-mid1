@@ -1,0 +1,29 @@
+Answer for #7.
+제 생각에는 공백이 허용되면 안된다고 생각합니다.
+명렁어 자체가 single character로 이루어졌기 때문에,
+오타가 난다 하더라도 정확히 오타가 무엇을 의미하는지 정확히 특정하는 건 어려운 일이라고 생각합니다. 그렇기 때문에 그런 예외적인 상황을 발생시키지 않고 좀 더 안정적인 프로그램을 만들기 위해서 공백이 허용하면 안된다고 생각합니다.
+
+-- 개인 노트 --
+1. 수업 자료와 교과서를 사용해서 직접 작성한 노트 (공유 x, 개인 노트입니다.)
+https://redtruth.notion.site/Heap-HeapSort-Priority-Queue-1adb10853ebd80299b10f62102bdb1bf?pvs=4 
+
+
+-- 참고 블로그 --
+2. 자바로 먼저 작성한 코드 (자바로 작성 후 cpp로 옮겼습니다. 백엔드 및 spring 공부 중에 있어서 자바로 객체지향형 코드를 짜고 싶었습니다.)
+https://github.com/hyukjin0419/java-mid1/tree/master/src/baekjoon/algorithm/ds/priorityQueue
+
+3. cpp 헤더 파일과 cpp 파일 소스 코드 분리 방법
+https://twinparadox.tistory.com/205
+
+4. c++ 에서 getter과 setter 문법 참고
+https://dnf-lover.tistory.com/entry/C%EB%AC%B8%EB%B2%95-%EC%83%9D%EC%84%B1%EC%9E%90%EC%99%80-%EC%86%8C%EB%A9%B8%EC%9E%90-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%A0%91%EA%B7%BC%EC%9E%90%EC%99%80-getter-setter-%EC%86%8C%EB%A9%B8%EC%9E%90-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%A0%91%EA%B7%BC%EC%9E%90%EC%99%80-getter-setter-%ED%95%A8%EC%88%98
+
+5. c++생성자 문법 참고
+https://boycoding.tistory.com/244
+
+6. c++ 입력 예외 처리 참고
+https://blog.naver.com/tipsware/221115532845
+
+7. c++ 에서 string -> int 형변환
+https://www.freecodecamp.org/korean/news/c-eseo-stringeul-integerro-byeonhwanhaneun-bangbeob-yesi-2/
+
