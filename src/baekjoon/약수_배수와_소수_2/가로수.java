@@ -23,7 +23,6 @@ public class 가로수 {
         for (int i = 1; i < gaps.length; i++) {
             gcdValue = gcd(gcdValue, gaps[i]);
         }
-
         int result = 0;
         for (int gap : gaps) {
             result += (gap / gcdValue) - 1;
