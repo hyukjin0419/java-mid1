@@ -28,14 +28,14 @@ public class ConnectedComponentsDFS {
             graph.get(edge[1]).add(edge[0]);
         }
 
-//        System.out.println("그래프 인접 리스트 (LinkedList 기반):");
-//        for (int i = 0; i < n; i++) {
-//            System.out.print(i + " → ");
-//            for (int neighbor : graph.get(i)) {
-//                System.out.print(neighbor + " ");
-//            }
-//            System.out.println();
-//        }
+        System.out.println("그래프 인접 리스트 (LinkedList 기반):");
+        for (int i = 0; i < n; i++) {
+            System.out.print(i + " → ");
+            for (int neighbor : graph.get(i)) {
+                System.out.print(neighbor + " ");
+            }
+            System.out.println();
+        }
 
         int componentId = 0;
 
