@@ -29,7 +29,8 @@ public class ArticulationPoint {
 
     public ArticulationPoint(int n) {
         graph = new List[n];
-        for (int i = 0; i < n; i++) graph[i] = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+            graph[i] = new ArrayList<>();
         visited = new boolean[n];
         d = new int[n];
         back = new int[n];
@@ -44,6 +45,9 @@ public class ArticulationPoint {
     }
 
     public void findArticulationPoints() {
+        for (int u = 0; u < graph.length; u++) {
+            if(!visited[u]) dfs(u);
+        }
         for (int u = 0; u < graph.length; u++) {
             if (isArticulation[u]) {
                 System.out.println("Articulation Point: " + u);
